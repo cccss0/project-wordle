@@ -33,7 +33,7 @@ function Game() {
 
   return (
     <>
-      <Guesses guessList={guessList}></Guesses>
+      <Guesses guessList={guessList} answer={answer}></Guesses>
       <Input addGuess={addGuess}></Input>
     </>
   );
