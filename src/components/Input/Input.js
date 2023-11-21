@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Input({ addGuess }) {
+function Input({ isGameWon, addGuess }) {
   const [input, setInput] = React.useState('');
 
   const logGuess = (event) => {
@@ -9,8 +9,14 @@ function Input({ addGuess }) {
     setInput('');
   };
 
+  const showInput = isGameWon === undefined;
+
   return (
-    <form className="guess-input-wrapper" onSubmit={(event) => logGuess(event)}>
+    <form
+      className="guess-input-wrapper"
+      style={{ visibility: showInput ? 'visible' : 'hidden' }}
+      onSubmit={(event) => logGuess(event)}
+    >
       <label htmlFor="guess-input">Enter guess:</label>
       <input
         required
